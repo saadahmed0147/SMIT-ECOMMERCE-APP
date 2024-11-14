@@ -2,7 +2,6 @@ import 'package:ecommerce_app/Components/bottom_navbar.dart';
 import 'package:ecommerce_app/Components/category_item.dart';
 import 'package:ecommerce_app/Components/product_card.dart';
 import 'package:ecommerce_app/Components/textfield.dart';
-import 'package:ecommerce_app/Model/cart_model.dart';
 import 'package:ecommerce_app/Provider/cart_provider.dart';
 import 'package:ecommerce_app/Data/product_data.dart';
 import 'package:ecommerce_app/Routes/route_names.dart';
