@@ -79,10 +79,12 @@ class _CartScreenState extends State<CartScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(cartItem.product.price),
-                          Text("Variant: ${cartItem.product.description}"),
+                          // Text("Variant: ${cartItem.product.description}"),
                         ],
                       ),
-                      trailing: Column(
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize
+                            .min, // Ensure it doesn't take more space than needed
                         children: [
                           IconButton(
                             icon: Icon(Icons.add),
@@ -92,6 +94,10 @@ class _CartScreenState extends State<CartScreen> {
                           IconButton(
                             icon: Icon(Icons.remove),
                             onPressed: () => _decreaseQuantity(cartItem),
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.delete),
+                            onPressed: () => _removeItem(cartItem),
                           ),
                         ],
                       ),
