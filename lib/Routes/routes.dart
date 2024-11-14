@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/Data/product_data.dart';
 import 'package:ecommerce_app/Pages/account_screen.dart';
 import 'package:ecommerce_app/Pages/cart_screen.dart';
 import 'package:ecommerce_app/Pages/checkout_screen.dart';
@@ -29,17 +30,18 @@ class Routes {
         );
       case RouteName.cart:
         return MaterialPageRoute(
-          builder: (context) => const CartScreen(),
+          builder: (context) =>
+              const CartScreen(), // No need to pass cartItems here
         );
       case RouteName.checkout:
         return MaterialPageRoute(
           builder: (context) => const CheckoutScreen(),
         );
       case RouteName.details:
+        final product = settings.arguments as Productdetails;
         return MaterialPageRoute(
-          builder: (context) => const DetailsScreen(),
+          builder: (context) => DetailsScreen(product: product),
         );
-
       default:
         return MaterialPageRoute(
           builder: (context) {

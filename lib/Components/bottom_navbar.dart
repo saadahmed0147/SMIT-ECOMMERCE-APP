@@ -1,90 +1,65 @@
-import 'package:ecommerce_app/Pages/account_screen.dart';
-import 'package:ecommerce_app/Pages/cart_screen.dart';
-import 'package:ecommerce_app/Pages/history_screen.dart';
-import 'package:ecommerce_app/Pages/home_screen.dart';
+import 'package:ecommerce_app/Routes/route_names.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Bottomnavbar extends StatefulWidget {
-  const Bottomnavbar({super.key});
-
-  @override
-  State<Bottomnavbar> createState() => _BottomnavbarState();
-}
-
-class _BottomnavbarState extends State<Bottomnavbar> {
-  int _selectionindex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectionindex = index;
-    });
-  }
+class BottomBar extends StatelessWidget {
+  const BottomBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _buildScreen(_selectionindex),
-      bottomNavigationBar: BottomAppBar(
-        shape: const CircularNotchedRectangle(),
-        color: const Color.fromARGB(255, 255, 255, 255),
-        notchMargin: 2.0,
+    final size = MediaQuery.of(context).size;
+
+    return BottomAppBar(
+      color: const Color(0xffffffff),
+      height: size.height * 0.13,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            IconButton(
-              onPressed: () => _onItemTapped(0),
-              icon: Icon(
-                Icons.home,
-                color: _selectionindex == 0
-                    ? Colors.black
-                    : Colors.grey.withOpacity(0.5),
-              ),
+            Column(
+              children: [
+                IconButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, RouteName.home);
+                    },
+                    icon: const Icon(
+                      CupertinoIcons.house_fill,
+                      color: Color(0xff67C4A7),
+                    )),
+                const Text(
+                  "Home",
+                  style: TextStyle(fontSize: 12),
+                )
+              ],
             ),
-            IconButton(
-              onPressed: () => _onItemTapped(2),
-              icon: Icon(
-                Icons.favorite_outline_sharp,
-                color: _selectionindex == 2
-                    ? Colors.black
-                    : Colors.grey.withOpacity(0.5),
-              ),
+            Column(
+              children: [
+                IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.favorite_outline_sharp)),
+                const Text("Wishlist", style: TextStyle(fontSize: 12))
+              ],
             ),
-            IconButton(
-              onPressed: () => _onItemTapped(1),
-              icon: Icon(
-                Icons.history_edu,
-                color: _selectionindex == 1
-                    ? Colors.black
-                    : Colors.grey.withOpacity(0.5),
-              ),
+            Column(
+              children: [
+                IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.history_edu_outlined)),
+                const Text("History", style: TextStyle(fontSize: 12))
+              ],
             ),
-            IconButton(
-              onPressed: () => _onItemTapped(3),
-              icon: Icon(
-                Icons.person,
-                color: _selectionindex == 3
-                    ? Colors.black
-                    : Colors.grey.withOpacity(0.5),
-              ),
-            ),
+            Column(
+              children: [
+                IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.account_circle_outlined)),
+                const Text("Account", style: TextStyle(fontSize: 12))
+              ],
+            )
           ],
         ),
       ),
     );
-  }
-}
-
-Widget _buildScreen(int index) {
-  switch (index) {
-    case 0:
-      return const HomeScreen();
-    case 1:
-      return const CartScreen();
-    case 2:
-      return const HistoryScreen();
-    case 3:
-      return const AccountScreen();
-    default:
-      return const HomeScreen();
   }
 }
