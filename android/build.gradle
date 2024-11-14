@@ -4,9 +4,10 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        // Replace with the latest version compatible with your project
-        classpath 'com.android.tools.build:gradle:7.3.0'
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10' // if you're using Kotlin
+        // Update to a newer version of Kotlin
+        classpath 'com.android.tools.build:gradle:7.3.0' // or latest version if needed
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0' // Updated Kotlin version
+        classpath 'com.google.gms:google-services:4.3.15' // If using Firebase
     }
 }
 

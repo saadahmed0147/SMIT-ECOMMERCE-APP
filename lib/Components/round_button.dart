@@ -13,7 +13,7 @@ class RoundButton extends StatefulWidget {
       required this.title,
       required this.onPress,
       this.loading = false,
-      this.backgroundColor = AppColors.lightGreenColor,
+      this.backgroundColor = AppColors.greenColor,
       this.foregroundColor = AppColors.whiteColor,
       this.focusNode});
 

@@ -58,11 +58,11 @@ class _SignupScreenState extends State<SignupScreen> {
     return PopScope(
       canPop: false,
       child: Scaffold(
-        backgroundColor: AppColors.greenColor,
+        backgroundColor: Colors.grey,
         appBar: AppBar(
           automaticallyImplyLeading: true,
           centerTitle: true,
-          backgroundColor: AppColors.lightGreenColor,
+          backgroundColor: AppColors.greenColor,
           foregroundColor: AppColors.whiteColor,
         ),
         body: Center(

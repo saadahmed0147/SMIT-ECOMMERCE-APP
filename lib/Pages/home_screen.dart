@@ -193,8 +193,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           padding: EdgeInsets.all(5),
                           child: Text(
                             "Filters    ",
-                            style: TextStyle(
-                                fontFamily: 'poppinslight', fontSize: 12),
+                            style: TextStyle(fontSize: 12),
                           ),
                         ),
                         Icon(

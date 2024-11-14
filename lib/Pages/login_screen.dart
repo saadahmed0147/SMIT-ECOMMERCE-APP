@@ -59,12 +59,12 @@ class _LoginScreenState extends State<LoginScreen> {
     return PopScope(
       canPop: false,
       child: Scaffold(
-        backgroundColor: AppColors.greenColor,
+        backgroundColor: Colors.grey,
         appBar: AppBar(
           // title: const Text('Login'),
           automaticallyImplyLeading: true,
           centerTitle: true,
-          backgroundColor: AppColors.lightGreenColor,
+          backgroundColor: AppColors.greenColor,
           foregroundColor: AppColors.whiteColor,
         ),
         body: Center(

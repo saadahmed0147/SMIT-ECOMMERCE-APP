@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "990699406675",
+    "project_id": "smit-ecommerce",
+    "storage_bucket": "smit-ecommerce.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:990699406675:android:d7ee946c90e1e97f6acda6",
+        "android_client_info": {
+          "package_name": "com.example.ecommerce_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDc9gFfv2nRpptDFY3LFUca345qzChPavA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:990699406675:android:a1caa9b1b9d3c1026acda6",
+        "android_client_info": {
+          "package_name": "com.smit.ecommerce_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDc9gFfv2nRpptDFY3LFUca345qzChPavA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

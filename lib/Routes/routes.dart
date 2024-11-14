@@ -6,12 +6,17 @@ import 'package:ecommerce_app/Pages/details_screen.dart';
 import 'package:ecommerce_app/Pages/home_screen.dart';
 import 'package:ecommerce_app/Pages/login_screen.dart';
 import 'package:ecommerce_app/Pages/signup_screen.dart';
+import 'package:ecommerce_app/Pages/splash_screen.dart';
 import 'package:ecommerce_app/Routes/route_names.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case RouteName.splash:
+        return MaterialPageRoute(
+          builder: (context) => const SplashScreen(),
+        );
       case RouteName.home:
         return MaterialPageRoute(
           builder: (context) => const HomeScreen(),
