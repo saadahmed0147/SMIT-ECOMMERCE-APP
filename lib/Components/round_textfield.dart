@@ -36,7 +36,7 @@ class _RoundTextFieldState extends State<RoundTextField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         child: ValueListenableBuilder(
           valueListenable: passwordVisiblity,
           builder: (context, value, child) {
@@ -58,10 +58,13 @@ class _RoundTextFieldState extends State<RoundTextField> {
                 border: InputBorder.none,
                 filled: true,
                 fillColor: AppColors.whiteColor,
-                floatingLabelBehavior: FloatingLabelBehavior.always,
-                hintText: widget.hint,
-                hintStyle: const TextStyle(color: Color(0xff8eaa8e)),
-                // prefixIcon: Icon(widget.prefixIcon),
+                floatingLabelBehavior: FloatingLabelBehavior.auto,
+                labelText: widget.hint,
+                labelStyle: TextStyle(color: Colors.black, fontSize: 14),
+                prefixIcon: Icon(
+                  widget.prefixIcon,
+                  color: Colors.grey,
+                ),
                 suffixIcon: widget.isPasswordField == true
                     ? IconButton(
                         onPressed: () {
@@ -71,18 +74,18 @@ class _RoundTextFieldState extends State<RoundTextField> {
                           passwordVisiblity.value
                               ? Icons.visibility_off
                               : Icons.visibility,
+                          color: Colors.grey,
                         ),
                       )
                     : null,
-
                 errorBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.greenColor),
+                    borderSide: BorderSide(),
                     borderRadius: BorderRadius.all(Radius.circular(8))),
                 focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.greenColor),
+                    borderSide: BorderSide(),
                     borderRadius: BorderRadius.all(Radius.circular(8))),
                 enabledBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(color: AppColors.greenColor),
+                  borderSide: BorderSide(),
                   borderRadius: BorderRadius.all(
                     Radius.circular(8),
                   ),

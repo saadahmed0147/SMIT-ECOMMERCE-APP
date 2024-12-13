@@ -56,100 +56,111 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context).size;
-    return PopScope(
-      canPop: false,
-      child: Scaffold(
-        backgroundColor: Colors.grey,
-        appBar: AppBar(
-          // title: const Text('Login'),
-          automaticallyImplyLeading: true,
-          centerTitle: true,
-          backgroundColor: AppColors.greenColor,
-          foregroundColor: AppColors.whiteColor,
-        ),
-        body: Center(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(50),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    child: Text(
-                      'LOGIN',
-                      style: TextStyle(
-                          fontSize: mq.height * 0.07,
-                          fontWeight: FontWeight.w900,
-                          color: AppColors.whiteColor),
+    return Scaffold(
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                height: mq.height * 0.4,
+                decoration: const BoxDecoration(
+                  // color: Colors.blue,
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(40.0),
+                      bottomRight: Radius.circular(40.0)),
+                  image: DecorationImage(
+                      image: AssetImage("assets/loginPageImg.jpg"),
+                      fit: BoxFit.cover),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3), // changes position of shadow
                     ),
-                  ),
-                  Form(
-                    key: _formKey,
-                    child: Column(
-                      children: [
-                        RoundTextField(
-                          label: 'Email',
-                          hint: 'Email',
-                          inputType: TextInputType.emailAddress,
-                          // prefixIcon: Icons.email,
-                          textEditingController: emailController,
-                          validatorValue: 'Please Enter Email',
-                          focusNode: emailFocusNode,
-                          onFieldSubmitted: (value) {
-                            Utils.fieldFocusNode(
-                                context, emailFocusNode, passFocusNode);
-                          },
-                        ),
-                        RoundTextField(
-                          label: 'Password',
-                          hint: 'Password',
-                          inputType: TextInputType.name,
-                          // prefixIcon: Icons.lock,
-                          textEditingController: passwordController,
-                          isPasswordField: true,
-                          validatorValue: 'Please Enter Password',
-                          focusNode: passFocusNode,
-                          onFieldSubmitted: (value) {
-                            onLogin();
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 70),
-                    child: RoundButton(
-                        loading: _loading,
-                        title: 'Login',
-                        onPress: () {
-                          if (_formKey.currentState!.validate()) {
-                            onLogin();
-                          }
-                        }),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      const Text(
-                        "Don't have an account?",
-                        style: TextStyle(color: AppColors.whiteColor),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, RouteName.signup);
-                        },
-                        child: const Text(
-                          'SignUp',
-                          style: TextStyle(color: Color(0xff53b26e)),
-                        ),
-                      )
-                    ],
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
+              SizedBox(
+                height: mq.height * 0.07,
+              ),
+              Row(children: <Widget>[
+                Expanded(
+                    child: Divider(
+                  color: Colors.black,
+                  height: mq.height * 0.036,
+                )),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Login",
+                      style: TextStyle(
+                        color: Colors.black,
+                      )),
+                ),
+                const Expanded(
+                    child: Divider(
+                  color: Colors.black,
+                )),
+              ]),
+              Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    RoundTextField(
+                      label: 'Enter Email',
+                      hint: 'Enter Email',
+                      prefixIcon: Icons.mail,
+                      inputType: TextInputType.emailAddress,
+                      textEditingController: emailController,
+                      validatorValue: 'Please Enter Email',
+                      focusNode: emailFocusNode,
+                      onFieldSubmitted: (value) {
+                        Utils.fieldFocusNode(
+                            context, emailFocusNode, passFocusNode);
+                      },
+                    ),
+                    RoundTextField(
+                      label: 'Enter Password',
+                      hint: 'Enter Password',
+                      inputType: TextInputType.name,
+                      prefixIcon: Icons.key,
+                      textEditingController: passwordController,
+                      isPasswordField: true,
+                      validatorValue: 'Please Enter Password',
+                      focusNode: passFocusNode,
+                      onFieldSubmitted: (value) {
+                        onLogin();
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: mq.height * 0.05,
+              ),
+              RoundButton(
+                  loading: _loading,
+                  title: 'Login',
+                  onPress: () {
+                    if (_formKey.currentState!.validate()) {
+                      onLogin();
+                    }
+                  }),
+              SizedBox(
+                height: mq.height * 0.02,
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, RouteName.signup);
+                },
+                child: const Text(
+                  'Create New Account',
+                  style: TextStyle(color: AppColors.blackColor),
+                ),
+              ),
+            ],
           ),
         ),
       ),
